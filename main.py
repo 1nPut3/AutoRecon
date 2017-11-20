@@ -2,18 +2,29 @@
 
 
 import subprocess, sys, time
+
+def ip():
+    print("")
+    address = raw_input("Type in the targets ip address: ")
+    return(address)
+
 def menu_choices(scan_type):
     print("")
     if scan_type == "1":
         print("[*] Starting Default Scan...")
+        target = ip()
     elif scan_type == "2":
         print("[*] Starting Light Scan...")
+        target = ip()
     elif scan_type == "3":
         print("[*] Starting Fast Scan...")
+        target = ip()
     elif scan_type == "4":
         print("[*] Starting Loud Scan...")
+        target = ip()
     elif scan_type == "5":
         print("[*] Starting Custom Scan...")
+        target = ip()
     elif scan_type == "99":
         print("[*] Exiting...")
         exit()
