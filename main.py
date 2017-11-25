@@ -5,16 +5,19 @@ import subprocess, sys, time
 
 
 # starts nikto scan if website and not silent scan
-def nikto_scan(argument):
+def nikto_scan(argument,target):
     if argument == True:
         print("[*] Starting nikto scan...")
         subprocess.call(['nikto', '-h', target ,'-o', '/root/Documents/results.txt',])
+        return(1)
     elif argument == False:
         print("[*] Detected not webpage...")
         print("[*] Skipping nikto scan")
+        return(1)
     else:
         # If error then abort task
         print("[*] Error aborting...")
+        return(0)
 
 def default_scan(target,website):
     ###### Default scan protocol ######
@@ -23,11 +26,10 @@ def default_scan(target,website):
     # If website and using word press start wpscan
 
     print("[*] starting nmap scan(not done yet)...")
-    nikto_scan()
     if website == 'y':
-        nikto_scan(True)
+        nikto_scan(True,target)
     else:
-        nikto_scan(False)
+        nikto_scan(False, target)
     print("[*] Starting wpscan...")
     menu()
 
@@ -77,7 +79,6 @@ def menu_choices(scan_type):
 
 def menu():
     try:
-        subprocess.call(['clear',])
         print("________________________Main Menu____________________________")
         print("")
         print("")
@@ -104,4 +105,5 @@ def menu():
         print("[*] KeyboardInterrupt detected. ")
         print("[*] Exiting...")
         print("")
+subprocess.call(['clear',])
 menu()
