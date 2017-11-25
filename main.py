@@ -1,3 +1,22 @@
+"""
+################################################################################
+
+Welcome to AutoRecon
+Created by Jason McGee
+
+This is still in development and will most likley have many bugs and spelling errors.
+
+If You find a bug please put comment in the issues page @ the GitHub repository.
+
+Anybody can copy and improve the code as long as you give credit where credit is due.
+
+Many more imrovments are on the way like complete ghost scan, easy to read printed results
+in one file from all a scan, a banner, more documentation, and more.
+################################################################################
+"""
+
+
+
 #!/usr/bin/env python
 
 
@@ -9,15 +28,12 @@ def nikto_scan(argument,target):
     if argument == True:
         print("[*] Starting nikto scan...")
         subprocess.call(['nikto', '-h', target ,'-o', '/root/Documents/results.txt',])
-        return(1)
     elif argument == False:
         print("[*] Detected not webpage...")
         print("[*] Skipping nikto scan")
-        return(1)
     else:
         # If error then abort task
         print("[*] Error aborting...")
-        return(0)
 
 def default_scan(target,website):
     ###### Default scan protocol ######
