@@ -2,7 +2,7 @@
 ################################################################################
 
 Welcome to AutoRecon
-Created by Jason McGee
+Created by 1nPut3
 
 This is still in development and will most likley have many bugs and spelling errors.
 
@@ -22,7 +22,8 @@ in one file from all a scan, a banner, more documentation, and more.
 
 import subprocess, sys, time
 
-
+import default_scan
+"""
 # starts nikto scan if website and not silent scan
 def nikto_scan(argument,target):
     if argument == True:
@@ -34,22 +35,34 @@ def nikto_scan(argument,target):
     else:
         # If error then abort task
         print("[*] Error aborting...")
+"""
+"""
+def nmap_scan(target):
+    subprocess.call(['nmap','-sV','-O',target, '-oN', '/root/Documents/nmap_scan.txt'])
+"""
+"""
+################################################################################
+SCAN FUNCTIONS
+Will be moved to seprate files soon
+"""
 
+"""
 def default_scan(target,website):
     ###### Default scan protocol ######
     # Start nmap scan
     # If website start nikto scan
     # If website and using word press start wpscan
 
-    print("[*] starting nmap scan(not done yet)...")
+    print("[*] starting nmap scan...")
+    nmap_scan(target)
     if website == 'y':
         nikto_scan(True,target)
     else:
         nikto_scan(False, target)
-    print("[*] Starting wpscan...")
+    print("[*] Starting wpscan(NOT DONE)...")
     menu()
 
-
+"""
 # Ip address input function
 def ip():
     print("")
@@ -63,6 +76,7 @@ def is_website():
     website = raw_input("Is this ip address a website?[y/n]: ")
     return(website)
 
+
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
     print("")
@@ -70,28 +84,62 @@ def menu_choices(scan_type):
         print("[*] Starting Default Scan...")
         target = ip()
         website = is_website()
-        default_scan(target,website)
+        default_scan.run(target,website)
+        print("[*] Scan complete!")
+        print("[*] Going back to home screen...")
+        print(" ")
+        menu()
     elif scan_type == "2":
-        print("[*] Starting Light Scan...")
-        target = ip()
-        website = is_website()
-    elif scan_type == "3":
         print("[*] Starting Fast Scan...")
         target = ip()
         website = is_website()
+        print("[*] Scan complete!")
+        print("[*] Going back to home screen...")
+
+    elif scan_type == "3":
+        print("[*] Starting Quiet Scan...")
+        target = ip()
+        website = is_website()
+        print("[*] Scan complete!")
+        print("[*] Going back to home screen...")
+
     elif scan_type == "4":
         print("[*] Starting Loud Scan...")
         target = ip()
         website = is_website()
+        print("[*] Scan complete!")
+        print("[*] Going back to home screen...")
+
     elif scan_type == "5":
+        print("Warning this scan is very slow and will take a few days to scan!")
+        warning = raw_input("Are you sure you want to continue?[y/n]: ")
+        if warning == 'y':
+            print("[*] Starting Ghost Scan...")
+            print("[*] This will take a while")
+            target = ip()
+            website = is_website()
+            print("[*] Scan complete!")
+            print("[*] Going back to home screen...")
+        elif warning =='n':
+            print("[*] Going back to menu...")
+            menu()
+        else:
+            print("[*] Sorry not an option going back to home screen.")
+            menu()
+    elif scan_type == "6":
         print("[*] Starting Custom Scan...")
         target = ip()
         website = is_website()
+        print("[*] Scan complete!")
+        print("[*] Going back to home screen...")
+
     elif scan_type == "99":
         print("[*] Exiting...")
         exit()
+
     else:
         print("please enter a valid choice!")
+
 
 def menu():
     try:
@@ -101,16 +149,19 @@ def menu():
         print("[1]: Default Scan")
         print("")
         print("")
-        print("[2]: Light Scan")
+        print("[2]: Fast Scan")
         print("")
         print("")
-        print("[3]: Fast Scan")
+        print("[3]: Quiet Scan")
         print("")
         print("")
         print("[4]: Loud Scan")
         print("")
         print("")
-        print("[5]: Custom Scan")
+        print("[5]: Ghost Scan ( Warning Very slow! )")
+        print("")
+        print("")
+        print("[6]: Custom Scan")
         print("")
         print("")
         print("[99]: Exit")
