@@ -23,46 +23,8 @@ in one file from all a scan, a banner, more documentation, and more.
 import subprocess, sys, time
 
 import default_scan
-"""
-# starts nikto scan if website and not silent scan
-def nikto_scan(argument,target):
-    if argument == True:
-        print("[*] Starting nikto scan...")
-        subprocess.call(['nikto', '-h', target ,'-o', '/root/Documents/results.txt',])
-    elif argument == False:
-        print("[*] Detected not webpage...")
-        print("[*] Skipping nikto scan")
-    else:
-        # If error then abort task
-        print("[*] Error aborting...")
-"""
-"""
-def nmap_scan(target):
-    subprocess.call(['nmap','-sV','-O',target, '-oN', '/root/Documents/nmap_scan.txt'])
-"""
-"""
-################################################################################
-SCAN FUNCTIONS
-Will be moved to seprate files soon
-"""
 
-"""
-def default_scan(target,website):
-    ###### Default scan protocol ######
-    # Start nmap scan
-    # If website start nikto scan
-    # If website and using word press start wpscan
 
-    print("[*] starting nmap scan...")
-    nmap_scan(target)
-    if website == 'y':
-        nikto_scan(True,target)
-    else:
-        nikto_scan(False, target)
-    print("[*] Starting wpscan(NOT DONE)...")
-    menu()
-
-"""
 # Ip address input function
 def ip():
     print("")
