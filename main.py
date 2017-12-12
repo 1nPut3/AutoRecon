@@ -38,7 +38,6 @@ def is_website():
     website = raw_input("Is this ip address a website?[y/n]: ")
     return(website)
 
-
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
     print("")
@@ -48,6 +47,7 @@ def menu_choices(scan_type):
         website = is_website()
         default_scan.run(target,website)
         print("[*] Scan complete!")
+        
         print("[*] Going back to home screen...")
         print(" ")
         menu()
