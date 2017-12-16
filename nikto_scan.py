@@ -1,14 +1,12 @@
 #!/usr/bin/env python
 
 
-import subprocess
-
-
-def scan(argument,target):
-    if argument == True:
+from subprocess import call
+def nikto_scan(web,target, save):
+    if web == 'y':
         print("[*] Starting nikto scan...")
-        subprocess.call(['nikto', '-h', target ,'-o', '/root/Documents/autoreconV2/scan_results/nikto.txt',])
-    elif argument == False:
+        call(['nikto', '-h', str(target) ,'-o', save + "/nikto.txt",])
+    elif web == 'n':
         print("[*] Detected not webpage...")
         print("[*] Skipping nikto scan")
     else:

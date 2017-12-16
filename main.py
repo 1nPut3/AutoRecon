@@ -19,37 +19,15 @@ in one file from all a scan, a banner, more documentation, and more.
 
 #!/usr/bin/env python
 
+from subprocess import call
+from default_scan import default_scan
 
-import subprocess, sys, time
-
-import default_scan
-
-
-# Ip address input function
-def ip():
-    print("")
-    address = raw_input("Type in the targets ip address: ")
-    return(address)
-
-
-# If website function
-def is_website():
-    print("")
-    website = raw_input("Is this ip address a website?[y/n]: ")
-    return(website)
 
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
     print("")
     if scan_type == "1":
-        print("[*] Starting Default Scan...")
-        target = ip()
-        website = is_website()
-        default_scan.run(target,website)
-        print("[*] Scan complete!")
-        
-        print("[*] Going back to home screen...")
-        print(" ")
+        default_scan()
         menu()
     elif scan_type == "2":
         print("[*] Starting Fast Scan...")
@@ -134,5 +112,6 @@ def menu():
         print("[*] KeyboardInterrupt detected. ")
         print("[*] Exiting...")
         print("")
-subprocess.call(['clear',])
+
+call(['clear',])
 menu()

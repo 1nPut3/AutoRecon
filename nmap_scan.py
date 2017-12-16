@@ -3,6 +3,6 @@
 
 import subprocess
 
-
-def scan(target):
-    subprocess.call(['nmap','-sV','-O',target, '-oN', '/root/Documents/autoreconV2/scan_results/nmap.txt'])
+def nmap_scan(target, save_location):
+    save = str(save_location)
+    subprocess.call(['nmap','-sV','-O',str(target), '-oN', save + "/nmap.txt"])
