@@ -28,25 +28,21 @@ def menu_choices(scan_type):
     print("")
     if scan_type == "1":
         default_scan()
-        menu()
     elif scan_type == "2":
         print("[*] Starting Fast Scan...")
-        target = ip()
-        website = is_website()
+
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
 
     elif scan_type == "3":
         print("[*] Starting Quiet Scan...")
-        target = ip()
-        website = is_website()
+
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
 
     elif scan_type == "4":
         print("[*] Starting Loud Scan...")
-        target = ip()
-        website = is_website()
+
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
 
@@ -56,20 +52,14 @@ def menu_choices(scan_type):
         if warning == 'y':
             print("[*] Starting Ghost Scan...")
             print("[*] This will take a while")
-            target = ip()
-            website = is_website()
             print("[*] Scan complete!")
             print("[*] Going back to home screen...")
         elif warning =='n':
             print("[*] Going back to menu...")
-            menu()
         else:
-            print("[*] Sorry not an option going back to home screen.")
-            menu()
+            print("[*] Sorry not an option going back to home screen...")
     elif scan_type == "6":
         print("[*] Starting Custom Scan...")
-        target = ip()
-        website = is_website()
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
 
@@ -82,36 +72,37 @@ def menu_choices(scan_type):
 
 
 def menu():
-    try:
-        print("________________________Main Menu____________________________")
-        print("")
-        print("")
-        print("[1]: Default Scan")
-        print("")
-        print("")
-        print("[2]: Fast Scan")
-        print("")
-        print("")
-        print("[3]: Quiet Scan")
-        print("")
-        print("")
-        print("[4]: Loud Scan")
-        print("")
-        print("")
-        print("[5]: Ghost Scan ( Warning Very slow! )")
-        print("")
-        print("")
-        print("[6]: Custom Scan")
-        print("")
-        print("")
-        print("[99]: Exit")
-        scan_type = raw_input("What scan do you want to run?: ")
-        menu_choices(scan_type)
+    while True:
+        try:
+            print("________________________Main Menu____________________________")
+            print("")
+            print("")
+            print("[1]: Default Scan")
+            print("")
+            print("")
+            print("[2]: Fast Scan")
+            print("")
+            print("")
+            print("[3]: Quiet Scan")
+            print("")
+            print("")
+            print("[4]: Loud Scan")
+            print("")
+            print("")
+            print("[5]: Ghost Scan ( Warning Very slow! )")
+            print("")
+            print("")
+            print("[6]: Custom Scan")
+            print("")
+            print("")
+            print("[99]: Exit")
+            scan_type = raw_input("What scan do you want to run?: ")
+            menu_choices(scan_type)
 
-    except(KeyboardInterrupt):
-        print("[*] KeyboardInterrupt detected. ")
-        print("[*] Exiting...")
-        print("")
+        except(KeyboardInterrupt):
+            print("[*] KeyboardInterrupt detected. ")
+            print("[*] Exiting...")
+            print("")
 
 call(['clear',])
 menu()

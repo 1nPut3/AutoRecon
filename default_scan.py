@@ -5,7 +5,6 @@ from nikto_scan import nikto_scan
 from time import sleep
 from file_output import output
 from get_ip import ip
-from get_save import save_location
 from is_website import is_website
 from file_output import output
 ###### Default scan protocol ######
@@ -25,7 +24,7 @@ def default_scan():
     print("[*] Starting wpscan(NOT DONE)...")
     print("[*] Scan complete!")
     print("[*] Saving scan Data...")
-    output(location)
+    output(location, web)
     sleep(1)
     print("[*] Going back to home screen...")
     print(" ")
