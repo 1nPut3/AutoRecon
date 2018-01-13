@@ -11,7 +11,7 @@ If You find a bug please put comment in the issues page @ the GitHub repository.
 Anybody can copy and improve the code as long as you give credit where credit is due.
 
 Many more imrovments are on the way like complete ghost scan, easy to read printed results
-in one file from all a scan, a banner, more documentation, and more.
+in one file from all scanners, a banner, more documentation, and more.
 ################################################################################
 """
 
@@ -22,6 +22,7 @@ in one file from all a scan, a banner, more documentation, and more.
 from subprocess import call
 from default_scan import default_scan
 from quick_scan import quick_scan
+from time import sleep
 
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
@@ -61,6 +62,8 @@ def menu_choices(scan_type):
 
     elif scan_type == "99":
         print("[*] Exiting...")
+        sleep(1)
+        call(['clear',])
         exit()
 
     else:
