@@ -21,7 +21,7 @@ in one file from all a scan, a banner, more documentation, and more.
 
 from subprocess import call
 from default_scan import default_scan
-
+from quick_scan import quick_scan
 
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
@@ -29,19 +29,15 @@ def menu_choices(scan_type):
     if scan_type == "1":
         default_scan()
     elif scan_type == "2":
-        print("[*] Starting Fast Scan...")
-
-        print("[*] Scan complete!")
-        print("[*] Going back to home screen...")
-
+        quick_scan()
     elif scan_type == "3":
-        print("[*] Starting Quiet Scan...")
+        print("[*] Starting Slow Comprehensive Scan...")
 
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
 
     elif scan_type == "4":
-        print("[*] Starting Loud Scan...")
+        print("[*] Starting Intense/Loud Scan...")
 
         print("[*] Scan complete!")
         print("[*] Going back to home screen...")
@@ -80,13 +76,13 @@ def menu():
             print("[1]: Default Scan")
             print("")
             print("")
-            print("[2]: Fast Scan")
+            print("[2]: Quick Scan")
             print("")
             print("")
-            print("[3]: Quiet Scan")
+            print("[3]: Slow Comprehensive Scan")
             print("")
             print("")
-            print("[4]: Loud Scan")
+            print("[4]: Intense/Loud Scan")
             print("")
             print("")
             print("[5]: Ghost Scan ( Warning Very slow! )")
@@ -96,12 +92,15 @@ def menu():
             print("")
             print("")
             print("[99]: Exit")
+            print("")
             scan_type = raw_input("What scan do you want to run?: ")
             menu_choices(scan_type)
 
         except(KeyboardInterrupt):
+            print("")
+            print("")
             print("[*] KeyboardInterrupt detected. ")
-            print("[*] Exiting...")
+            print("[*] Please type 99 to exit!")
             print("")
 
 call(['clear',])

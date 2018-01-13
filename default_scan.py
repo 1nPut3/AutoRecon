@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 from subprocess import call
-from nmap_scan import nmap_scan
-from nikto_scan import nikto_scan
+#from nmap_scan import nmap_scan
+#from nikto_scan import nikto_scan
 from time import sleep
 from file_output import output
 from get_ip import ip
 from is_website import is_website
-from file_output import output
+
 ###### Default scan protocol ######
 # Start nmap scan
 # If website start nikto scan
@@ -15,11 +15,11 @@ from file_output import output
 def default_scan():
     target = ip()
     print("")
-    location = raw_input("Scan results save location?: ")
+    save_location = raw_input("Scan results save location?: ")
     web = is_website()
     print("[*] Starting Default Scan...")
     print("[*] starting nmap scan...")
-    nmap_scan(target, location)
+    subprocess.call(['nmap','-sV','-O',str(target), '-oN', save_location + "/nmap.txt"])
     nikto_scan(web,target, location)
     print("[*] Starting wpscan(NOT DONE)...")
     print("[*] Scan complete!")
