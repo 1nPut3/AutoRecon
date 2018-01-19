@@ -19,7 +19,7 @@ def default_scan():
     web = is_website()
     print("[*] Starting Default Scan...")
     print("[*] starting nmap scan...")
-    subprocess.call(['nmap','-sV','-O',str(target), '-oN', save_location + "/nmap.txt"])
+    call(['nmap','-sV','-O',str(target), '-oN', save_location + "/nmap.txt"])
     call(['nikto','-h', str(target), '-o', save_location + "/nikto.txt"])
     print("[*] Starting wpscan(NOT DONE)...")
     print("[*] Scan complete!")
