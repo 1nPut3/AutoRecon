@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from subprocess import call
-#from nmap_scan import nmap_scan
-#from nikto_scan import nikto_scan
+import os
 from time import sleep
 from file_output import output
 from get_ip import ip
@@ -15,16 +14,22 @@ from is_website import is_website
 def default_scan():
     target = ip()
     print("")
-    save_location = raw_input("Scan results save location?: ")
-    web = is_website()
+    user = os.path.expanduser('~')
+    save_location = user +"/Documents"
+    call(['clear',])
+    print("")
+    # save_location = raw_input("Scan results save location?: ")
     print("[*] Starting Default Scan...")
+    print("")
     print("[*] starting nmap scan...")
+    print("")
     call(['nmap','-sV','-O',str(target), '-oN', save_location + "/nmap.txt"])
     call(['nikto','-h', str(target), '-o', save_location + "/nikto.txt"])
-    print("[*] Starting wpscan(NOT DONE)...")
     print("[*] Scan complete!")
+    print("")
     print("[*] Saving scan Data...")
-    output(save_location, web)
+    print("")
+    output(save_location, target)
     sleep(1)
     print("[*] Going back to home screen...")
     print(" ")
