@@ -59,7 +59,6 @@ def menu_choices(scan_type):
 
     elif scan_type == "99":
         print("[*] Exiting...")
-        sleep(1)
         call(['clear',])
         exit()
 
