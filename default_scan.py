@@ -4,7 +4,6 @@ import os
 from time import sleep
 from file_output import output
 from get_ip import ip
-from is_website import is_website
 
 ###### Default scan protocol ######
 # Start nmap scan

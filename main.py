@@ -23,6 +23,7 @@ from subprocess import call
 from default_scan import default_scan
 from quick_scan import quick_scan
 from time import sleep
+from slow_scan import slow_scan
 
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
@@ -32,11 +33,7 @@ def menu_choices(scan_type):
     elif scan_type == "2":
         quick_scan()
     elif scan_type == "3":
-        print("[*] Starting Slow Comprehensive Scan...")
-
-        print("[*] Scan complete!")
-        print("[*] Going back to home screen...")
-
+        slow_scan()
     elif scan_type == "4":
         print("[*] Starting Intense/Loud Scan...")
 
@@ -82,7 +79,7 @@ def menu():
             print("[2]: Quick Scan")
             print("")
             print("")
-            print("[3]: Slow Comprehensive Scan(Not Done)")
+            print("[3]: Slow Comprehensive Scan")
             print("")
             print("")
             print("[4]: Intense/Loud Scan(Not Done)")
