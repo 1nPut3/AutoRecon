@@ -25,6 +25,7 @@ from quick_scan import quick_scan
 from time import sleep
 from slow_scan import slow_scan
 from intense_scan import intense_scan
+from ghost_scan import ghost_scan
 
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
@@ -38,17 +39,7 @@ def menu_choices(scan_type):
     elif scan_type == "4":
         intense_scan()
     elif scan_type == "5":
-        print("Warning this scan is very slow and will take a few hours or days to scan!")
-        warning = raw_input("Are you sure you want to continue?[y/n]: ")
-        if warning == 'y':
-            print("[*] Starting Ghost Scan...")
-            print("[*] This will take a while")
-            print("[*] Scan complete!")
-            print("[*] Going back to home screen...")
-        elif warning =='n':
-            print("[*] Going back to home screen...")
-        else:
-            print("[*] Sorry not an option going back to home screen...")
+        ghost_scan()
     elif scan_type == "6":
         print("[*] Starting Custom Scan...")
         print("[*] Scan complete!")
@@ -81,7 +72,7 @@ def menu():
             print("[4]: Intense Scan")
             print("")
             print("")
-            print("[5]: Ghost Scan ( Warning Very slow!(Not Done) )")
+            print("[5]: Ghost Scan ( Warning Very slow!)")
             print("")
             print("")
             print("[6]: Custom Scan(Not Done)")
