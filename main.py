@@ -26,7 +26,7 @@ from time import sleep
 from slow_scan import slow_scan
 from intense_scan import intense_scan
 from ghost_scan import ghost_scan
-
+from banner import banner
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
     print("")
@@ -57,8 +57,8 @@ def menu_choices(scan_type):
 def menu():
     while True:
         try:
-            print("________________________AutoRecon____________________________")
-            print("")
+            banner()
+            print("________________________________________________")
             print("")
             print("[1]: Default Scan")
             print("")
