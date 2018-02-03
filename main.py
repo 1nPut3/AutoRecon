@@ -4,7 +4,7 @@
 Welcome to AutoRecon
 Created by 1nPut3
 
-This is still in development and will most likley have many bugs and spelling errors.
+This is still in development and will most likely have many bugs and spelling errors.
 
 If You find a bug please put comment in the issues page @ the GitHub repository.
 
