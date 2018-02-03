@@ -52,12 +52,12 @@ def menu_choices(scan_type):
 
     else:
         print("please enter a valid choice!")
-
+#####END OF menu_choices################################################
 
 def menu():
     while True:
         try:
-            print("________________________Main Menu____________________________")
+            print("________________________AutoRecon____________________________")
             print("")
             print("")
             print("[1]: Default Scan")
@@ -75,7 +75,7 @@ def menu():
             print("[5]: Ghost Scan ( Warning Very slow!)")
             print("")
             print("")
-            print("[6]: Custom Scan(Not Done)")
+            print("[6]: Default Scan + Enumeration(Not Done)")
             print("")
             print("")
             print("[99]: Exit")
