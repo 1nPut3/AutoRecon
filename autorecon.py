@@ -1,3 +1,4 @@
+# !/usr/bin/env python
 """
 ################################################################################
 
@@ -15,18 +16,15 @@ in one file from all scanners, a banner, more documentation, and more.
 ################################################################################
 """
 
-
-
-#!/usr/bin/env python
-
 from subprocess import call
 from default_scan import default_scan
 from quick_scan import quick_scan
-from time import sleep
 from slow_scan import slow_scan
 from intense_scan import intense_scan
 from ghost_scan import ghost_scan
 from banner import banner
+
+
 # Pick from the menu choices fuction
 def menu_choices(scan_type):
     print("")
@@ -47,12 +45,13 @@ def menu_choices(scan_type):
 
     elif scan_type == "99":
         print("[*] Exiting...")
-        call(['clear',])
+        call(['clear', ])
         exit()
 
     else:
         print("please enter a valid choice!")
-#####END OF menu_choices################################################
+# ####END OF menu_choices################################################
+
 
 def menu():
     while True:
@@ -90,5 +89,6 @@ def menu():
             print("[*] Please type 99 to exit!")
             print("")
 
-call(['clear',])
+
+call(['clear', ])
 menu()
