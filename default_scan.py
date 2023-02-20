@@ -26,7 +26,7 @@ def default_scan():
     print("[*] starting nmap scan...")
     print("")
 
-    call(['nmap','-sV','-O',str(target), '-oN', save_location + "/nmap.txt"])
+    call(['nmap','-sV',str(target), '-oN', save_location + "/nmap.txt"])
     call(['nikto','-h', str(target), '-o', save_location + "/nikto.txt"])
 
     print("[*] Scan complete!")

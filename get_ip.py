@@ -3,5 +3,5 @@
 
 def ip():
     print("")
-    address = raw_input("Type in the targets ip address: ")
+    address = input("Type in the targets ip address: ")
     return(address)
